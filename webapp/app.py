@@ -16,13 +16,13 @@ app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 # Ensure the upload folder exists
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-# Load Wav2Vec2 model and processor
-wav2vec_processor = Wav2Vec2Processor.from_pretrained("facebook/wav2vec2-base-960h")
+# Load Wav2Vec2 model (additional model)
+wav2vec_processor = Wav2Vec2Processor.from_pretrained("facebook/wav2vec2-base-960h") 
 wav2vec_model = Wav2Vec2ForCTC.from_pretrained("facebook/wav2vec2-base-960h")
 
-# Load Whisper model and processor
-whisper_processor = WhisperProcessor.from_pretrained(r"C:\Users\mzlwm\Downloads\SST\SST\Model")
-whisper_model = WhisperForConditionalGeneration.from_pretrained(r"C:\Users\mzlwm\Downloads\SST\SST\Model")
+# Load Whisper model (whisper model)
+whisper_processor = WhisperProcessor.from_pretrained('../Model')
+whisper_model = WhisperForConditionalGeneration.from_pretrained('../Model')
 
 def allowed_file(filename):
     """Check if the uploaded file has an allowed extension."""

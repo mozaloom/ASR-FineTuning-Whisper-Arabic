@@ -1,85 +1,70 @@
-# Speech Recognition Application
+# Arabic-SR-Whisper
+
+A web application for Arabic speech recognition and transcription using Whisper and Wav2Vec2 models.
 
 ## Overview
-This project is a web-based speech recognition application that transcribes audio files into text using AI models Wav2Vec2 and Whisper.
+
+Arabic-SR-Whisper provides a simple web interface for transcribing Arabic speech from audio files. The application supports two state-of-the-art speech recognition models:
+
+- **Whisper**: OpenAI's robust speech recognition model with strong Arabic language support
+- **Wav2Vec2**: Facebook's speech recognition model as an alternative transcription option
 
 ## Features
-- Supports Wav2Vec2 and Whisper models for transcription.
-- Accepts `.wav` and `.mp3` audio files.
-- User-friendly web interface.
 
-## Step-by-Step Setup
+- Upload audio files (.wav, .mp3) for transcription
+- Choose between Whisper and Wav2Vec2 models
+- Simple and intuitive web interface
+- API endpoint for transcription services
 
-### Prerequisites
-- Python 3.8 or higher installed.
-- Basic knowledge of command-line usage.
+## Project Structure
 
-### Steps
+```
+├── Dockerfile              # Container definition
+├── Makefile                # Build automation
+├── models                  # Pre-trained model files
+├── notebooks               # Development notebooks
+├── requirements.txt        # Python dependencies
+└── webapp                  # Flask application
+```
 
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/your-repo/speech-recognition-app.git
-   cd speech-recognition-app
+## Installation
+
+1. Clone the repository:
+   ```
+   git clone https://github.com/yourusername/arabic-sr-whisper.git
+   cd arabic-sr-whisper
    ```
 
-2. **Set Up a Virtual Environment**:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
+2. Install dependencies:
    ```
-
-3. **Install Dependencies**:
-   ```bash
    pip install -r requirements.txt
    ```
 
-4. **Download Models**:
-   - Wav2Vec2:
-     ```bash
-     transformers-cli download facebook/wav2vec2-base-960h
-     ```
-   - Whisper:
-     Ensure Whisper model files are placed in `./whisper-small-hi`.
-
-5. **Run the Application**:
-   ```bash
-   python app.py
+3. Run the application:
+   ```
+   python webapp/app.py
    ```
 
-6. **Access the Application**:
-   Open your web browser and navigate to:
-   ```
-   http://127.0.0.1:5000
-   ```
+## Docker
 
-7. **Use the Application**:
-   - Upload a `.wav` or `.mp3` file.
-   - Select the desired model (Wav2Vec2 or Whisper).
-   - Click "Transcribe" to get the transcription.
+Build and run with Docker:
 
-## File Structure
 ```
-.
-├── app.py              # Main Flask application
-├── templates
-│   └── index.html      # Frontend HTML file
-├── static
-│   ├── styles.css      # CSS for styling
-├── uploads             # Directory for uploaded audio files
-├── whisper-small-hi    # Directory containing the Whisper model files
-├── requirements.txt    # Python dependencies
-└── README.md           # Project documentation
+docker build -t arabic-sr-whisper .
+docker run -p 5000:5000 arabic-sr-whisper
 ```
 
-## Troubleshooting
-- Ensure all dependencies are installed and Python version is compatible.
-- Check the `uploads` folder has write permissions.
+## Usage
+
+1. Open the web interface at http://localhost:5000
+2. Upload an audio file containing Arabic speech
+3. Select your preferred model (Whisper or Wav2Vec2)
+4. Submit and receive the transcription
 
 ## License
-This project is licensed under the MIT License. See the `LICENSE` file for details.
 
-## Acknowledgments
-- Hugging Face for their Transformers library.
-- OpenAI for the Whisper model.
-- Flask for enabling rapid development of web applications.
+See the [LICENSE](LICENSE) file for details.
 
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
